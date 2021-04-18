@@ -14,6 +14,15 @@ ObjectFlow flows the set of objects it creates towards the specified target.
 ![Installation Step 3](Documentation/installation_step_3.png)
 
 # How To Use
+
+> ## ❗ Important   
+> Always use the ObjectFlow in a seperate canvas. <br/>
+> UI elements are not designed to create hundreds at a time.  <br/>
+> Creating frequently updated objects in a separate canvas will prevent other UI elements from getting dirty. <br/>
+> Canvas can also be a bottom canvas of the canvas you are currently using. <br/>
+> Read [this article](https://unity3d.com/how-to/unity-ui-optimization-tips) from Unity for more information.
+
+
 1. Create a child canvas within your canvas.
 2. Create a GameObject within the child canvas.
 3. Add `ObjectFlow` script to the `GameObject`.
@@ -21,10 +30,12 @@ ObjectFlow flows the set of objects it creates towards the specified target.
 5. Define explosion radius and speed. Tweak the Animation Curves of the explosion.
 6. Assign the **target** `GameObject` and tweak the Animation Curves of the **flow path**.
 7. Invoke the `ObjectFlow.Flow()` method.
+
 ![Demo](Documentation/demo_screenshot.png)
 
 # Demo Video
 If you have trouble using the package, try to follow the steps by watching the demo video. 
+
 ![Demo](Documentation/tutorial.gif)
 
 # License

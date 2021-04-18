@@ -22,7 +22,7 @@ public class FlowObject
         /// <param name="startPosition">Initial position of the object.</param>
         /// <param name="target">The position in the space that the object will be after the flow.</param>
         /// <param name="speed">Flowing speed of the individual object.</param>
-        public void Init(AnimationCurve curveX, AnimationCurve curveY, Vector3 startPosition,  Vector3 target, float speed)
+        public void Init(Vector3 startPosition,  Vector3 target, float speed, AnimationCurve curveX, AnimationCurve curveY)
         {
             this.curveX = curveX;
             this.curveY = curveY;

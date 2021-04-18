@@ -13,7 +13,7 @@ public class ObjectFlow : MonoBehaviour
     /// Base instance of the objects in the flow. 
     /// </summary>
     public GameObject Projectile;
-    public int ProjectileAmount;
+    public int Amount;
     /// <summary>
     /// Minimum possible speed of an object that flows to the target. 
     /// </summary>
@@ -62,7 +62,7 @@ public class ObjectFlow : MonoBehaviour
     /// <summary>
     /// Container of the currently flowing objects. 
     /// </summary>
-    List<FlowObject> flowObjects;
+    public List<FlowObject> flowObjects;
 
     /// <summary>
     /// Objects starts flowing to the target position when set to true
@@ -74,19 +74,19 @@ public class ObjectFlow : MonoBehaviour
     /// </summary>
     ObjectPool<FlowObject> pool;
 
-    void Start()
+    public void Start()
     {
-        pool = new ObjectPool<FlowObject>(CreateProjectile);
+        pool = new ObjectPool<FlowObject>(CreateFlowObject);
     }
 
     /// <summary>
     ///  Helps projectile pool to create new projectiles
     /// </summary>
     /// <returns>A new projectile that has the same transform with the original one.</returns>
-    public FlowObject CreateProjectile()
+    public FlowObject CreateFlowObject()
     {
-        var icon = Instantiate(Projectile, transform);
-        return new FlowObject() { transform = icon.transform };
+        var flowObject = Instantiate(Projectile, transform);
+        return new FlowObject() { transform = flowObject.transform };
     }
 
     /// <summary>
@@ -119,7 +119,7 @@ public class ObjectFlow : MonoBehaviour
                 }
 
                 var projectileSpeed = Random.Range(1/MinSpeed, 1/MaxSpeed);
-                flowObject.Init(FlowCurveX, FlowCurveY, flowObject.transform.position, Target.position, projectileSpeed);
+                flowObject.Init(flowObject.transform.position, Target.position, projectileSpeed, FlowCurveX, FlowCurveY);
             }
         }
     }
@@ -151,18 +151,18 @@ public class ObjectFlow : MonoBehaviour
     {
         Clear();
         flowObjects = new List<FlowObject>();
-        for (int i = 0; i < ProjectileAmount; i++)
+        for (int i = 0; i < Amount; i++)
         {
             var marginX = Random.Range(-SpreadRadius, SpreadRadius);
             var marginY = Random.Range(-SpreadRadius, SpreadRadius);
-            var coin = pool.Get();
-            coin.SetActive(true);
+            var flowObject = pool.Get();
+            flowObject.SetActive(true);
 
-            coin.transform.position = transform.position;
+            flowObject.transform.position = transform.position;
             var target = new Vector3(transform.position.x + marginX, transform.position.y + marginY, transform.position.z);
 
-            coin.Init(ExplosionCurveX, ExplosionCurveY, transform.position, target, 1 / ExplosionSpeed);
-            flowObjects.Add(coin);
+            flowObject.Init(transform.position, target, 1 / ExplosionSpeed, ExplosionCurveX, ExplosionCurveY);
+            flowObjects.Add(flowObject);
         }
 
         flowing = true;

@@ -6,7 +6,7 @@ ObjectFlow flows the set of objects it creates towards the specified target.
 ![Showcase](Documentation/showcase.gif)
 
 # Installation
-1. Copy `https://github.com/Gnarly-Games/ObjectFlow`
+1. Copy `https://github.com/Gnarly-Games/ObjectFlow.git`
 2. Open the package manager by following `Window -> Package Manager`
 3. Click **Add package from git URL** and paste the URL.
 ![Installation Step 1](Documentation/installation_step_1.png)

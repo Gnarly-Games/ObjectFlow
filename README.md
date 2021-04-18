@@ -17,7 +17,7 @@ ObjectFlow flows the set of objects it creates towards the specified target.
 
 > ## ❗ Important   
 > Always use the ObjectFlow in a seperate canvas. <br/>
-> UI elements are not designed to create hundreds at a time.  <br/>
+> UI elements are not designed to be created hundreds at a time.  <br/>
 > Creating frequently updated objects in a separate canvas will prevent other UI elements from getting dirty. <br/>
 > Canvas can also be a bottom canvas of the canvas you are currently using. <br/>
 > Read [this article](https://unity3d.com/how-to/unity-ui-optimization-tips) from Unity for more information.

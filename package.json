@@ -1,0 +1,20 @@
+{
+    "name": "com.gnarlygamestudio.objectflow",
+    "version": "1.0.0",
+    "displayName": "ObjectFlow",
+    "description": "ObjectFlow flows the set of objects it creates towards the specified target.",
+    "unity": "2020.1",
+    "unityRelease": "17f1",
+    "dependencies": {},
+   "keywords": [
+      "UI",
+      "Particle",
+      "Flow"
+    ],
+    "author": {
+      "name": "Gnarly Game Studio",
+      "email": "info@gnarlygamestudio.com",
+      "url": "https://www.gnarlygamestudio.com"
+    }
+  }
+  

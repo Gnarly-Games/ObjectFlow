@@ -1,8 +1,10 @@
 name: Publish UPM Package
 
-# manually trigger the workflow
-on: workflow_dispatch
-
+on:
+  push:
+    tags:        
+      - v*
+   
 jobs:
   upm-release-essential:
     runs-on: ubuntu-latest
@@ -14,3 +16,8 @@ jobs:
       with:
         upm_package_path: .
         upm_tag_prefix: v
+    - uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: Test results
+        path: artifacts

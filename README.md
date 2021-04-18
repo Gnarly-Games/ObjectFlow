@@ -3,6 +3,8 @@ ObjectFlow flows the set of objects it creates towards the specified target.
 
 *This package is not dependent on any additional libraries.*
 
+![Showcase](Documentation/showcase.gif)
+
 # Installation
 1. Copy `https://github.com/Gnarly-Games/ObjectFlow`
 2. Open package manager with following `Window -> Package Manager`
